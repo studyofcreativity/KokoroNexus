@@ -44,12 +44,12 @@ async function load(){
   $('#loading').hidden=false;$('#empty').hidden=true;$('#list').innerHTML='';
   try{
     const data=await api('GET','/threads');
-    // Compatible con respuesta nueva {threads,meta} o array viejo
     if(Array.isArray(data)){S.threads=data;S.meta=null}
-    else{S.threads=data.threads||[];S.meta=data.meta||null}
+    else if(data&&Array.isArray(data.threads)){S.threads=data.threads;S.meta=data.meta||null}
+    else{S.threads=[];S.meta=null}
     showWarn(S.meta);
     renderHome();
-  }catch(e){alert('Error: '+e.message)}
+  }catch(e){alert('Error: '+e.message);S.threads=[]}
   $('#loading').hidden=true;
 }
 
