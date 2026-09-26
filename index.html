@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KokoroNexus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header">
+<div class="wrap head">
+<a href="#" class="logo" id="logo">⚡ Kokoro<span>Nexus</span></a>
+<nav class="nav" id="nav">
+<a href="#" data-v="home">Inicio</a>
+<a href="#" data-v="cat" data-c="temporada">Temporada</a>
+<a href="#" data-v="cat" data-c="manga">Manga</a>
+<a href="#" data-v="cat" data-c="teorias">Teorías</a>
+<a href="#" data-v="cat" data-c="fanarts">Fanarts</a>
+<a href="#" data-v="cat" data-c="watchparties">Parties</a>
+</nav>
+<div class="acts">
+<button id="themeBtn" class="icon-btn">🌙</button>
+<button id="newBtn" class="btn">+ Hilo</button>
+<button id="menuBtn" class="btn out">Menú</button>
+</div>
+</div>
+</header>
+<main class="wrap">
+<section id="view-home">
+<div class="hero"><h1>KokoroNexus</h1><p>Conecta. Debate. Crea.</p></div>
+<div class="userbar">
+<label>Tu nombre:</label>
+<input id="nameIn" maxlength="24" placeholder="Nick...">
+<button id="saveName" class="btn out sm">Guardar</button>
+</div>
+<div id="cats" class="cats"></div>
+<div class="toolbar">
+<h2 id="listTitle">Últimos hilos</h2>
+<select id="sort">
+<option value="newest">Recientes</option>
+<option value="replies">Más respuestas</option>
+<option value="oldest">Antiguos</option>
+</select>
+</div>
+<div id="list"></div>
+<div id="empty" class="empty" hidden>
+<p>No hay hilos. ¡Sé el primero!</p>
+<button id="emptyNew" class="btn">Crear hilo</button>
+</div>
+<div id="loading" class="empty" hidden>Cargando…</div>
+</section>
+<section id="view-thread" hidden>
+<button class="back" id="back">← Volver</button>
+<article id="detail"></article>
+<h3>Respuestas <span id="rCount">(0)</span></h3>
+<div id="replies"></div>
+<form id="replyForm" class="form">
+<textarea id="replyIn" rows="3" placeholder="Tu respuesta..." required></textarea>
+<button class="btn" type="submit">Publicar</button>
+</form>
+</section>
+<section id="view-form" hidden>
+<button class="back" id="backForm">← Cancelar</button>
+<h2 id="formTitle">Nuevo hilo</h2>
+<form id="threadForm" class="form">
+<input id="tTitle" required maxlength="120" placeholder="Título">
+<select id="tCat" required>
+<option value="temporada">📺 Temporada</option>
+<option value="manga">📚 Manga</option>
+<option value="teorias">🧠 Teorías</option>
+<option value="fanarts">🎨 Fanarts</option>
+<option value="watchparties">🍿 Parties</option>
+<option value="offtopic">💬 Off-topic</option>
+</select>
+<textarea id="tContent" rows="6" required placeholder="Contenido... **negrita** *cursiva*"></textarea>
+<button class="btn" type="submit" id="submitBtn">Publicar</button>
+</form>
+</section>
+</main>
+<footer class="footer">⚡ KokoroNexus · Cloudflare</footer>
+<div id="modal" class="modal" hidden>
+<div class="mbox">
+<p id="modalTxt">¿Eliminar?</p>
+<button class="btn danger" id="okDel">Eliminar</button>
+<button class="btn out" id="noDel">Cancelar</button>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
