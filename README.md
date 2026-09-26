@@ -1,14 +1,23 @@
-# KokoroNexus — Foro (Cloudflare D1)
+# KokoroNexus — Cloudflare D1
 
 API: https://kokoronexus-api.study-of-creativity.workers.dev
 
-## Uso
-1. Abre index.html o súbelo a GitHub Pages.
-2. Escribe tu nick → Guardar.
-3. Crea hilos y responde.
-4. Solo el navegador que creó un mensaje puede editarlo/borrarlo.
+## Limpieza automática
+- Máximo **500 hilos**.
+- A partir de **450** muestra aviso en la web.
+- Al crear un hilo nuevo si ya hay 500, se borran los **más antiguos** automáticamente.
 
-## Tabla D1 (si falta)
+Para cambiar el límite, edita en el Worker:
+```
+const MAX_THREADS = 500;
+const WARN_THREADS = 450;
+```
+
+## Actualizar el Worker
+1. Edit code → pega el contenido de worker.js
+2. Deploy
+
+## Tabla D1
 ```sql
 CREATE TABLE IF NOT EXISTS threads (
   id TEXT PRIMARY KEY,
@@ -21,8 +30,3 @@ CREATE TABLE IF NOT EXISTS threads (
   replies TEXT NOT NULL DEFAULT '[]'
 );
 ```
-
-## Archivos
-- index.html (~3 KB)
-- styles.css (~5 KB)
-- script.js (~9 KB)
